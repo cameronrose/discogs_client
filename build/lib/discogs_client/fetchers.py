@@ -93,7 +93,6 @@ class OAuth2Fetcher(Fetcher):
                                               body=data, headers=headers)
 
         resp = request(method, uri, headers=headers, data=body)
-        
         return resp.content, resp.status_code
 
 

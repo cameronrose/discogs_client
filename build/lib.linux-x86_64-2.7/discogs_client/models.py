@@ -611,16 +611,16 @@ class CollectionFolder(PrimaryAPIObject):
 
     def __init__(self, client, dict_):
         super(CollectionFolder, self).__init__(client, dict_)
-                
+
     @property
     def releases(self):
         # TODO: Needs releases_url
         return PaginatedList(self.client, self.fetch('resource_url') + '/releases', 'releases', CollectionItemInstance)
 
     def add_release(self, release):
-                add_release_url = self.fetch('resource_url') + '/releases/{}'.format(release)
-                self.client._post(add_release_url, None)
-
+        add_release_url = self.fetch('resource_url') + '/releases/{}'.format(release)
+        self.client._post(add_release_url, None)
+                
     def __repr__(self):
         return self.repr_str('<CollectionFolder {0!r} {1!r}>'.format(self.id, self.name))
 
